@@ -5,9 +5,9 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import ThreeBackground from "./components/ThreeBackground";
 
-export default function Home() {
+export default function Page() {
   return (
-    <main className="relative w-full h-full min-h-screen">
+    <main className="relative w-full h-screen bg-black text-white">
       <ThreeBackground />
       <Navbar />
       <Hero />
