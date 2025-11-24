@@ -1,28 +1,35 @@
+/* Tailwind base import */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Global styles */
 html, body {
   padding: 0;
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #0f0f0f;
-  color: #fff;
+  scroll-behavior: smooth;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 * {
   box-sizing: border-box;
 }
 
-.section {
-  padding: 100px 20px;
+section {
+  scroll-margin-top: 80px; /* For fixed navbar offset */
 }
 
-button {
-  cursor: pointer;
+/* Custom animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fadeInUp {
+  animation: fadeInUp 0.8s ease forwards;
 }
