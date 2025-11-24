@@ -1,15 +1,20 @@
-"use client";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 w-full p-6 flex justify-between items-center bg-black bg-opacity-50 z-50">
-      <h1 className="text-white font-bold text-2xl">Asim Portfolio</h1>
-      <ul className="flex gap-6 text-white">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <motion.nav
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="fixed w-full flex justify-between p-6 bg-black/80 backdrop-blur-md z-50"
+    >
+      <h1 className="text-xl font-bold">Portfolio</h1>
+      <div className="space-x-4">
+        <Link href="#skills">Skills</Link>
+        <Link href="#projects">Projects</Link>
+        <Link href="#contact">Contact</Link>
+      </div>
+    </motion.nav>
   );
 }
