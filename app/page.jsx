@@ -7,7 +7,7 @@ import ThreeBackground from "./components/ThreeBackground";
 
 export default function Page() {
   return (
-    <main className="relative w-full h-screen bg-black text-white">
+    <main className="relative w-full min-h-screen bg-black text-white overflow-hidden">
       <ThreeBackground />
       <Navbar />
       <Hero />
