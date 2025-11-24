@@ -1,23 +1,21 @@
-import { motion } from "framer-motion";
+"use client";
 
 export default function Projects() {
-  return (
-    <section className="px-6 py-20">
-      <h2 className="text-4xl glow text-center mb-10">Projects</h2>
+  const projects = [
+    { name: "Portfolio Site", description: "Cinematic portfolio with Next.js & Three.js" },
+    { name: "AI Helper", description: "Homework helper with AI & animations" },
+    { name: "3D Animation Demo", description: "Three.js interactive animations" }
+  ];
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {[1, 2].map((n) => (
-          <motion.div
-            key={n}
-            className="h-64 rounded-xl bg-gradient-to-br from-neon to-blue-600 shadow-xl"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="p-6 text-black text-xl font-bold">
-              Cinematic Project {n}
-            </div>
-          </motion.div>
+  return (
+    <section id="projects" className="h-screen flex flex-col justify-center items-center">
+      <h2 className="text-4xl font-bold mb-6">Projects</h2>
+      <div className="flex flex-col md:flex-row gap-8">
+        {projects.map(project => (
+          <div key={project.name} className="bg-gray-900 p-6 rounded-xl shadow-xl w-80">
+            <h3 className="text-2xl font-semibold">{project.name}</h3>
+            <p className="mt-2">{project.description}</p>
+          </div>
         ))}
       </div>
     </section>
