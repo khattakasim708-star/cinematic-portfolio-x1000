@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  background: #030014;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Neon glow text */
+.neon-text {
+  text-shadow: 0 0 10px #37f7ff, 0 0 20px #37f7ff,
+               0 0 40px #37f7ff, 0 0 80px #37f7ff;
+}
+
+/* Glass effect */
+.glass {
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Skill bar */
+.skill-bar {
+  height: 12px;
+  border-radius: 20px;
+  background: #222;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00eaff, #ff00ff);
+  width: 0%;
+}
+
+/* Contact glow */
+.input-glow {
+  border: 1px solid #37f7ff;
+  box-shadow: 0 0 10px #37f7ff;
+}
