@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom cinematic gradient */
+body {
+  background: radial-gradient(circle at center, #0f0f0f, #000);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Neon glow */
+.glow {
+  text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+}
+
+/* Fake avatar circle (no PNG needed) */
+.fake-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: conic-gradient(#00f7ff, #0077ff, #00f7ff);
+  box-shadow: 0 0 30px #00f7ff;
+}
