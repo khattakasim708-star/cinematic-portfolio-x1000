@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  output: 'export', // required for Netlify static export
+  output: 'export', // <-- static export mode
 }
 
 module.exports = nextConfig;
