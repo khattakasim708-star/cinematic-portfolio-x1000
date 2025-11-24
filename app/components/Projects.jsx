@@ -1,27 +1,41 @@
+'use client';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const projects = [
-  { title: 'Cinematic Portfolio', description: 'Interactive portfolio website', link: '#' },
-  { title: 'AI Homework Helper', description: 'Smart AI app with animations', link: '#' },
+  { name: 'Portfolio Website', description: 'Cinematic portfolio built with Next.js', link: '#' },
+  { name: 'E-commerce Store', description: 'Full-stack online store with payments', link: '#' },
+  { name: 'Chat App', description: 'Real-time chat application using Socket.io', link: '#' },
 ];
 
-export default function Projects() {
+const Projects = () => {
   return (
-    <section id="projects" className="section bg-black">
-      <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
-      <div className="flex flex-wrap justify-center gap-6">
-        {projects.map((project, idx) => (
+    <section id="projects" className="py-20 bg-gray-900 text-white">
+      <motion.h2
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-4xl font-bold text-center mb-10"
+      >
+        Projects
+      </motion.h2>
+      <div className="grid md:grid-cols-3 gap-8 px-6 md:px-20">
+        {projects.map((project, index) => (
           <motion.a
-            key={idx}
+            key={index}
             href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
-            className="bg-gray-800 p-6 rounded-lg shadow-lg w-72"
+            className="bg-gray-800 p-6 rounded-lg shadow-lg transition"
           >
-            <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+            <h3 className="text-2xl font-semibold mb-2">{project.name}</h3>
             <p>{project.description}</p>
           </motion.a>
         ))}
       </div>
     </section>
   );
-}
+};
+
+export default Projects;
