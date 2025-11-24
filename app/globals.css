@@ -1,115 +1,32 @@
-/* Tailwind base */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ---------- Global Styles ---------- */
-html {
-  scroll-behavior: smooth;
-  font-family: 'Inter', sans-serif; /* You can replace with any font */
-  background-color: #0a0a0a; /* Dark cinematic background */
-  color: #ffffff;
-}
-
-/* ---------- Smooth Scrollbar Styling ---------- */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #ff0055; /* Highlight color */
-  border-radius: 4px;
-}
-
-/* ---------- Typography ---------- */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', sans-serif;
-  color: #ffffff;
+html, body {
   margin: 0;
-}
-p {
-  line-height: 1.6;
-  color: #cccccc;
-}
-
-/* ---------- Container Animations ---------- */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fadeInUp {
-  animation: fadeInUp 0.8s ease forwards;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #fff;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.animate-fadeIn {
-  animation: fadeIn 1s ease forwards;
+.fade-in {
+  opacity: 1 !important;
 }
 
-/* ---------- Hero Background Animation ---------- */
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.bg-animated {
-  background: linear-gradient(-45deg, #ff0055, #ff7700, #00ffff, #7700ff);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-}
-
-/* ---------- Buttons ---------- */
-button {
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-button:hover {
-  transform: scale(1.05);
-  background-color: #ff0055;
-}
-
-/* ---------- Sections ---------- */
 section {
-  padding: 6rem 2rem;
-  position: relative;
+  padding: 5rem 2rem;
 }
 
-/* ---------- Link Hover ---------- */
+h1, h2 {
+  color: #fff;
+}
+
 a {
-  transition: color 0.3s ease;
+  text-decoration: none;
+  color: inherit;
 }
+
 a:hover {
-  color: #ff0055;
-}
-
-/* ---------- Utility Classes ---------- */
-.hidden {
-  display: none;
-}
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 768px) {
-  section {
-    padding: 4rem 1rem;
-  }
+  opacity: 0.9;
 }
