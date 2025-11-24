@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // required for Netlify static export
+  output: "export", // enables static export compatible with Netlify
   reactStrictMode: true,
 };
 
