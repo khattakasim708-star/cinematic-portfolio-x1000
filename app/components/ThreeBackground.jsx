@@ -4,52 +4,50 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export default function ThreeBackground() {
-  const mountRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    if (!containerRef.current) return;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.z = 3;
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    mountRef.current?.appendChild(renderer.domElement);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    containerRef.current.appendChild(renderer.domElement);
 
-    // Particles
-    const geometry = new THREE.SphereGeometry(1, 32, 32);
-    const material = new THREE.PointsMaterial({
-      size: 0.02,
-      color: "#00f7ff",
-    });
-    const particles = new THREE.Points(geometry, material);
-    scene.add(particles);
+    const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+    const material = new THREE.MeshNormalMaterial({ wireframe: true });
+    const torusKnot = new THREE.Mesh(geometry, material);
+    scene.add(torusKnot);
 
-    // Resize handler
-    const handleResize = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-    };
-    window.addEventListener("resize", handleResize);
+    camera.position.z = 50;
 
-    // Animation loop
     const animate = () => {
-      particles.rotation.y += 0.002;
-      renderer.render(scene, camera);
       requestAnimationFrame(animate);
+      torusKnot.rotation.x += 0.005;
+      torusKnot.rotation.y += 0.01;
+      renderer.render(scene, camera);
     };
     animate();
 
-    // Cleanup
+    const handleResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("resize", handleResize);
-      mountRef.current?.removeChild(renderer.domElement);
+      renderer.dispose();
     };
   }, []);
 
-  return <div ref={mountRef} className="fixed inset-0 -z-10"></div>;
+  return <div ref={containerRef} className="absolute top-0 left-0 w-full h-full -z-10" />;
 }
