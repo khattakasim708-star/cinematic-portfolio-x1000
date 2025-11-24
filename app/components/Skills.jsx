@@ -1,15 +1,16 @@
-import SkillBar from "./SkillBar";
+"use client";
 
 export default function Skills() {
+  const skills = ["React", "Next.js", "Three.js", "Tailwind CSS", "AI Integrations"];
   return (
-    <section className="px-6 py-20">
-      <h2 className="text-4xl glow mb-10 text-center">Skills</h2>
-
-      <div className="max-w-3xl mx-auto">
-        <SkillBar name="React / Next.js" value={95} />
-        <SkillBar name="Three.js / WebGL" value={90} />
-        <SkillBar name="GSAP / Motion" value={92} />
-        <SkillBar name="UI / UX" value={88} />
+    <section id="skills" className="h-screen flex flex-col justify-center items-center">
+      <h2 className="text-4xl font-bold mb-6">Skills</h2>
+      <div className="flex flex-wrap justify-center gap-6">
+        {skills.map(skill => (
+          <div key={skill} className="bg-gray-800 p-4 rounded-lg shadow-lg">
+            {skill}
+          </div>
+        ))}
       </div>
     </section>
   );
