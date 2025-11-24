@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build"
-  publish = "out"
+  command = "npm run build"       # no next export
+  publish = "out"                 # Next.js 14 static export folder
   functions = "netlify/functions"
 
 [[plugins]]
