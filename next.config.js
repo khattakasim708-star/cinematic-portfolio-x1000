@@ -2,10 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  output: 'export', // required for static export with Netlify
-  experimental: {
-    appDir: true // optional, Next.js 14 uses App Router by default
-  }
-};
+  output: 'export', // required for Netlify static export
+}
 
 module.exports = nextConfig;
