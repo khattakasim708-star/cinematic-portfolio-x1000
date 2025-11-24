@@ -1,24 +1,35 @@
+'use client';
+import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function Hero() {
+const Hero = () => {
   return (
-    <section className="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black via-gray-900 to-black">
+    <section id="hero" className="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-800 to-gray-900 text-white">
       <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-5xl font-bold text-white text-center"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="text-5xl font-bold mb-4 text-center"
       >
-        Welcome to My Portfolio
+        Hi, I'm Asim
       </motion.h1>
       <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="mt-4 text-xl text-gray-300 text-center max-w-xl"
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="text-xl text-center max-w-xl"
       >
-        I build cinematic and interactive web experiences with animations.
+        I'm a full-stack developer creating beautiful and performant web applications.
       </motion.p>
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        className="mt-8 px-6 py-3 bg-indigo-500 rounded-md hover:bg-indigo-600 transition"
+      >
+        Explore
+      </motion.button>
     </section>
   );
-}
+};
+
+export default Hero;
