@@ -1,7 +1,6 @@
-import React from 'react'; // Make sure React is imported
 import dynamic from 'next/dynamic';
 
-// Import components dynamically to prevent SSR issues with DOM usage
+// Disable SSR for all components that use hooks or context
 const Navbar = dynamic(() => import('./components/Navbar'), { ssr: false });
 const Hero = dynamic(() => import('./components/Hero'), { ssr: false });
 const Skills = dynamic(() => import('./components/Skills'), { ssr: false });
