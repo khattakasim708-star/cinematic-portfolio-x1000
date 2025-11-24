@@ -1,16 +1,15 @@
 module.exports = {
-  mode: "jit",
   content: [
-    "./pages/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}"
   ],
   theme: {
     extend: {
       colors: {
-        neon: "#37f7ff",
-        glowPink: "#ff00ff",
-      },
-    },
+        neon: "#00f7ff",
+        dark: "#0a0a0a"
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };
