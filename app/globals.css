@@ -3,30 +3,26 @@
 @tailwind utilities;
 
 html, body {
-  margin: 0;
   padding: 0;
+  margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #000;
-  color: #fff;
-}
-
-.fade-in {
-  opacity: 1 !important;
-}
-
-section {
-  padding: 5rem 2rem;
-}
-
-h1, h2 {
+  background: #0f0f0f;
   color: #fff;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-a:hover {
-  opacity: 0.9;
+* {
+  box-sizing: border-box;
+}
+
+.section {
+  padding: 100px 20px;
+}
+
+button {
+  cursor: pointer;
 }
