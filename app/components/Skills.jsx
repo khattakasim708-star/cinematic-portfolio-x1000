@@ -1,17 +1,26 @@
+'use client';
+import React from 'react';
 import { motion } from 'framer-motion';
 
-const skills = ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'JavaScript', 'TypeScript'];
+const skills = ['React.js', 'Next.js', 'TailwindCSS', 'Framer Motion', 'Node.js', 'Express.js'];
 
-export default function Skills() {
+const Skills = () => {
   return (
-    <section id="skills" className="section bg-gray-900">
-      <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2>
+    <section id="skills" className="py-20 bg-gray-100 text-gray-900">
+      <motion.h2
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-4xl font-bold text-center mb-10"
+      >
+        Skills
+      </motion.h2>
       <div className="flex flex-wrap justify-center gap-6">
-        {skills.map((skill, idx) => (
+        {skills.map((skill, index) => (
           <motion.div
-            key={idx}
+            key={index}
             whileHover={{ scale: 1.1 }}
-            className="bg-gray-800 px-6 py-3 rounded-lg shadow-lg"
+            className="bg-white shadow-md p-4 rounded-lg cursor-pointer"
           >
             {skill}
           </motion.div>
@@ -19,4 +28,6 @@ export default function Skills() {
       </div>
     </section>
   );
-}
+};
+
+export default Skills;
