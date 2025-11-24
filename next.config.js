@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", // enables static HTML export
-  experimental: {
-    appDir: true, // keep app directory enabled
-  },
+  output: 'export', // required for Netlify static export
+  reactStrictMode: true,
 };
 
 module.exports = nextConfig;
