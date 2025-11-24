@@ -1,19 +1,20 @@
-"use client";
+import { motion } from 'framer-motion';
+
+const skills = ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'JavaScript', 'TypeScript'];
 
 export default function Skills() {
-  const skills = ["React", "Next.js", "Tailwind CSS", "Framer Motion", "JavaScript"];
-
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-900">
-      <h2 className="text-4xl font-semibold mb-10">Skills</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-        {skills.map((skill) => (
-          <div
-            key={skill}
-            className="bg-purple-700 px-6 py-4 rounded-lg shadow-lg text-center hover:scale-105 transition-transform duration-300"
+    <section id="skills" className="section bg-gray-900">
+      <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2>
+      <div className="flex flex-wrap justify-center gap-6">
+        {skills.map((skill, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ scale: 1.1 }}
+            className="bg-gray-800 px-6 py-3 rounded-lg shadow-lg"
           >
             {skill}
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
