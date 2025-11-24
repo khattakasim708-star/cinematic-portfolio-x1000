@@ -1,24 +1,25 @@
-"use client";
+import { motion } from 'framer-motion';
+
+const projects = [
+  { title: 'Cinematic Portfolio', description: 'Interactive portfolio website', link: '#' },
+  { title: 'AI Homework Helper', description: 'Smart AI app with animations', link: '#' },
+];
 
 export default function Projects() {
-  const projects = [
-    { name: "Portfolio Website", link: "#" },
-    { name: "E-commerce App", link: "#" },
-    { name: "Blog Platform", link: "#" },
-  ];
-
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-800">
-      <h2 className="text-4xl font-semibold mb-10">Projects</h2>
-      <div className="grid md:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <a
-            key={project.name}
+    <section id="projects" className="section bg-black">
+      <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
+      <div className="flex flex-wrap justify-center gap-6">
+        {projects.map((project, idx) => (
+          <motion.a
+            key={idx}
             href={project.link}
-            className="bg-blue-700 rounded-lg p-6 shadow-lg text-center hover:bg-blue-600 transition-colors"
+            whileHover={{ scale: 1.05 }}
+            className="bg-gray-800 p-6 rounded-lg shadow-lg w-72"
           >
-            {project.name}
-          </a>
+            <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+            <p>{project.description}</p>
+          </motion.a>
         ))}
       </div>
     </section>
